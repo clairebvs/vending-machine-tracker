@@ -15,10 +15,10 @@ feature 'When a user visits a vending machine show page' do
     dons  = owner.machines.create(location: "Don's Mixed Drinks")
     snack1 = Snack.create(name: 'Oreo', price: 2)
     snack2 = Snack.create(name: 'Mars', price: 1)
-    machine_snacks = MachineSnack.create(snack_id: snack1, machine_id: dons)
-    machine_snacks = MachineSnack.create(snack_id: snack2, machine_id: dons)
-
+    machine_snacks = MachineSnack.create(snack_id: snack1.id, machine_id: dons.id)
+    machine_snacks1 = MachineSnack.create(snack_id: snack2.id, machine_id: dons.id)
     visit machine_path(dons)
+
 
     expect(page).to have_content(snack1.name)
     expect(page).to have_content(snack1.price)
