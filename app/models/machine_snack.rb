@@ -1,0 +1,3 @@
+class MachineSnack < ApplicationRecord
+  
+end
